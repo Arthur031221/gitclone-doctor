@@ -147,7 +147,7 @@ The comparison does not change `HOME`, global Git config, or the user's working 
 <details>
 <summary><b>CI</b></summary>
 
-The workflow runs offline tests on Node 20, 22, and 24. It also packs the project, installs it in a directory outside the checkout, and runs the installed command's help output.
+The workflow runs offline tests on Node 20, 22, 24, and 26. It also packs the project, installs it in a directory outside the checkout, and runs the installed command's help output.
 
 </details>
 
