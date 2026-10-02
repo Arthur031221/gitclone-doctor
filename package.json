@@ -1,0 +1,17 @@
+{
+  "name": "gitclone-doctor",
+  "version": "0.1.0",
+  "description": "Compare anonymous GitHub HTTPS ref discovery with the selected transport and HTTP/1.1.",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "bin": {
+    "gitclone-doctor": "bin/gitclone-doctor.mjs"
+  },
+  "scripts": {
+    "test": "node --test",
+    "demo": "node scripts/demo.mjs"
+  },
+  "license": "MIT"
+}

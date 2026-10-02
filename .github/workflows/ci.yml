@@ -1,0 +1,26 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      max-parallel: 1
+      matrix:
+        node-version: [20, 22, 24]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: npm test
+      - name: Install packed CLI outside the checkout
+        run: |
+          TARBALL="$(npm pack --pack-destination "$RUNNER_TEMP" --silent)"
+          mkdir -p "$RUNNER_TEMP/install-smoke"
+          npm install --prefix "$RUNNER_TEMP/install-smoke" "$RUNNER_TEMP/$TARBALL" --no-audit --no-fund
+          "$RUNNER_TEMP/install-smoke/node_modules/.bin/gitclone-doctor" --help

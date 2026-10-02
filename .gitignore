@@ -1,0 +1,9 @@
+node_modules/
+*.tgz
+*.tar.gz
+*.key
+*.pem
+*.crt
+*.mp4
+*.webm
+coverage/
